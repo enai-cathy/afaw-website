@@ -54,6 +54,15 @@ const Posts = () => {
   if (!posts.length)
     return (
       <Layout title="Posts - Africa Access Water">
+        {/* Spacer to prevent navbar overlap */}
+        <div
+          style={{
+            paddingTop: window.innerWidth < 768 ? '95px' : '130px',
+            backgroundColor: '#001d23',
+          }}
+        >
+        </div>
+        
         <div className="container mt-5">
           <h1>Posts</h1>
           <p>No posts found.</p>
