@@ -1,8 +1,20 @@
 // Auto-generated from API - Do not edit manually
-// Last updated: 2025-10-12 00:12:40 UTC
+// Last updated: 2025-10-27 18:11:09 UTC
 
 export const teamMembers = 
 [
+  {
+    "id": 13,
+    "type": "Volunteer",
+    "full_name": "Matthew Murphy",
+    "title": null,
+    "socials": "",
+    "position": "Fundraising Officer",
+    "image_url": null,
+    "bio": "",
+    "created_at": "2025-10-27T18:10:15.422Z",
+    "updated_at": "2025-10-27T18:10:15.422Z"
+  },
   {
     "id": 1,
     "type": "Volunteer",
