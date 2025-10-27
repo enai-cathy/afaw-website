@@ -1,5 +1,5 @@
 // Auto-generated from API - Do not edit manually
-// Last updated: 2025-10-27 18:11:09 UTC
+// Last updated: 2025-10-27 18:30:46 UTC
 
 export const teamMembers = 
 [
@@ -10,7 +10,7 @@ export const teamMembers =
     "title": null,
     "socials": "",
     "position": "Fundraising Officer",
-    "image_url": null,
+    "image_url": "https://res.cloudinary.com/dz3tgvaiw/image/upload/v1761589667/teams/1761589667067-1742545949932.jpg.jpg",
     "bio": "",
     "created_at": "2025-10-27T18:10:15.422Z",
     "updated_at": "2025-10-27T18:10:15.422Z"
