@@ -24,6 +24,15 @@ const Donate = () => {
         const res = await fetch(`${API_BASE}/api/projects`);
         const data = await res.json();
         if (Array.isArray(data)) setProjects(data);
+
+        //Set default selected project if available
+        const defaultProjectId = 5;
+        const hasDefault = data.some((proj) => proj.id === defaultProjectId);
+        if (hasDefault) {
+          setSelectedProjectId(defaultProjectId);
+        // default logic end  
+        
+        }
       } catch (err) {
         console.error("Error fetching projects:", err);
       }
