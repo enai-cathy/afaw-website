@@ -33,7 +33,7 @@ const About = ({ image, smallImage, title, quote, description, buttons }) => {
                         <i className="fa fa-arrow-right"></i>
                     </div>
                 </a>
-                <a className="btn btn-outline-primary py-2 px-3" href="contact.html">
+                <a className="btn btn-outline-primary py-2 px-3" href="/contact">
                     Contact Us
                     <div className="d-inline-flex btn-sm-square bg-primary text-white rounded-circle ms-2">
                         <i className="fa fa-arrow-right"></i>
