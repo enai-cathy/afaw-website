@@ -1,14 +1,16 @@
 import React, { useEffect, useState } from "react";
-import { useParams, Link } from "react-router-dom";
+import { useParams, Link, useNavigate } from "react-router-dom";
 import Layout from "../components/Layout";
 import CONFIG from "../config";
 import { Helmet } from "react-helmet";
 import { TbFileText } from "react-icons/tb";
+import { extractIdFromSlug, createSlugWithId } from "../utils/slugify";
 
 const API_BASE = CONFIG.apiBaseUrl;
 
 const SingleProject = () => {
-  const { id } = useParams();
+  const { id: slug } = useParams();
+  const navigate = useNavigate();
   const [project, setProject] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -18,7 +20,16 @@ const SingleProject = () => {
     setLoading(true);
     setError(null);
 
-    fetch(`${API_BASE}/api/projects/${id}`)
+    // Extract ID from slug (e.g., "clean-water-project-5" -> 5)
+    const projectId = extractIdFromSlug(slug);
+    
+    if (!projectId) {
+      setError("Invalid project URL");
+      setLoading(false);
+      return;
+    }
+
+    fetch(`${API_BASE}/api/projects/${projectId}`)
       .then((res) => {
         if (!res.ok) {
           throw new Error("Project not found");
@@ -39,7 +50,18 @@ const SingleProject = () => {
       });
 
     return () => (mounted = false);
-  }, [id]);
+  }, [slug]);
+
+  // Validate and redirect to canonical URL if slug doesn't match
+  useEffect(() => {
+    if (project && slug) {
+      const correctSlug = createSlugWithId(project.name, project.id);
+      if (slug !== correctSlug) {
+        console.log(`Redirecting from wrong slug "${slug}" to correct slug "${correctSlug}"`);
+        navigate(`/our-work/${correctSlug}`, { replace: true });
+      }
+    }
+  }, [project, slug, navigate]);
 
   if (loading) {
     return (
@@ -254,7 +276,7 @@ const SingleProject = () => {
 
                     {/* Action Buttons */}
                     <div className="d-grid gap-2">
-                      <Link to={`/donate?projectId=${project.id}`} className="btn btn-primary btn-lg">
+                      <Link to={`/donate/${createSlugWithId(project.name, project.id)}`} className="btn btn-primary btn-lg">
                         <i className="fas fa-heart me-2"></i>
                         Support This Project
                       </Link>

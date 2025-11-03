@@ -1,13 +1,15 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useParams, useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet";
 import Layout from "../components/Layout";
 import CONFIG from "../config";
-import {useSearchParams } from 'react-router-dom';
+import { extractIdFromSlug, createSlugWithId } from "../utils/slugify";
 
 const API_BASE = CONFIG.apiBaseUrl;
 
 const Donate = () => {
+  const { projectSlug } = useParams();
+  const navigate = useNavigate();
   const [projects, setProjects] = useState([]);
   const [selectedProjectId, setSelectedProjectId] = useState("1");
   const [selectedProject, setSelectedProject] = useState(null);
@@ -17,7 +19,6 @@ const Donate = () => {
   const [showCustom, setShowCustom] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [donationType, setDonationType] = useState("");
-  const [searchParams] = useSearchParams();
 
   // Fetch projects
   useEffect(() => {
@@ -27,25 +28,24 @@ const Donate = () => {
         const data = await res.json();
         if (Array.isArray(data)) setProjects(data);
 
-        // Read the projectId from optional parameter if present
-        const projectIdFromUrl = searchParams.get("projectId");
-        const hasProject = projectIdFromUrl && data.some((proj) => String(proj.id) === projectIdFromUrl);
+        // Extract project ID from URL slug if present (e.g., /donate/solar-water-system-5)
+        const projectIdFromSlug = projectSlug ? extractIdFromSlug(projectSlug) : null;
+        const hasProject = projectIdFromSlug && data.some((proj) => proj.id === projectIdFromSlug);
 
         if (hasProject) {
-          setSelectedProjectId(projectIdFromUrl);
-        } else {
-          // Only if you want some project default selection logic rather than general donation else remove else block
+          setSelectedProjectId(String(projectIdFromSlug));
+        } else if (!projectSlug) {
+          // Only set default if no project slug in URL (general donation)
           const defaultProjectId = "5";
           const hasDefault = data.some((proj) => String(proj.id) === defaultProjectId);
           if (hasDefault) setSelectedProjectId(defaultProjectId);
-
         }
       } catch (err) {
         console.error("Error fetching projects:", err);
       }
     };
     fetchProjects();
-  }, []);
+  }, [projectSlug]);
 
   // Update selectedProject whenever selectedProjectId changes
   useEffect(() => {
@@ -53,6 +53,17 @@ const Donate = () => {
     setSelectedProject(proj || null);
     setCurrentMediaIndex(0); // Reset slider
   }, [selectedProjectId, projects]);
+
+  // Validate and redirect to canonical URL if slug doesn't match
+  useEffect(() => {
+    if (selectedProject && projectSlug) {
+      const correctSlug = createSlugWithId(selectedProject.name, selectedProject.id);
+      if (projectSlug !== correctSlug) {
+        console.log(`Redirecting from wrong slug "${projectSlug}" to correct slug "${correctSlug}"`);
+        navigate(`/donate/${correctSlug}`, { replace: true });
+      }
+    }
+  }, [selectedProject, projectSlug, navigate]);
 
   const handleProjectChange = (e) => {
     setSelectedProjectId(e.target.value);

@@ -4,6 +4,7 @@ import Layout from "../components/Layout";
 import PostCard from "../components/PostCard";
 import CONFIG from "../config";
 import { Helmet } from "react-helmet";
+import { createSlugWithId } from "../utils/slugify";
 
 const API_BASE = CONFIG.apiBaseUrl;
 
@@ -126,7 +127,7 @@ const Posts = () => {
                   <div
                     className="card shadow-lg cursor-pointer"
                     style={{ cursor: "pointer" }}
-                    onClick={() => navigate(`/blogs/${featuredPost.id}`)}
+                    onClick={() => navigate(`/blogs/${createSlugWithId(featuredPost.title, featuredPost.id)}`)}
                   >
                     <img
                       src={featuredPost.image_url}
@@ -164,7 +165,7 @@ const Posts = () => {
                       key={post.id}
                       className="cursor-pointer"
                       style={{ cursor: "pointer" }}
-                      onClick={() => navigate(`/posts/${post.id}`)}
+                      onClick={() => navigate(`/blogs/${createSlugWithId(post.title, post.id)}`)}
                     >
                       <PostCard
                         title={post.title}

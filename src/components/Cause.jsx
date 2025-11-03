@@ -1,4 +1,5 @@
 import React from 'react';
+import { createSlugWithId } from '../utils/slugify';
 
 const Cause = ({projectId, delay, title, desc, goal, raised, tag, img, alt }) => {
   return (
@@ -42,7 +43,7 @@ const Cause = ({projectId, delay, title, desc, goal, raised, tag, img, alt }) =>
                 objectPosition: "center"
           }}/>
           <div className="causes-overlay">
-            <a className="btn btn-outline-primary" href={`/our-work/${projectId}`}>
+            <a className="btn btn-outline-primary" href={`/our-work/${createSlugWithId(title, projectId)}`}>
               Read More
               <div className="d-inline-flex btn-sm-square bg-primary text-white rounded-circle ms-2">
                 <i className="fa fa-arrow-right"></i>

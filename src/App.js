@@ -24,11 +24,12 @@ function App() {
         <Route path="/our-work/:id" element={<SingleProject />} />
         <Route path="/blogs" element={<Posts />} />
         <Route path="/blogs/:id" element={<SinglePost />} />
-        <Route path="/donate" element={<Donate />} />
-        <Route path="/contact" element={<Contact />} />
-        <Route path="/team" element={<Team />} />
         <Route path="/posts" element={<Posts />} />
         <Route path="/posts/:id" element={<SinglePost />} />
+        <Route path="/donate" element={<Donate />} />
+        <Route path="/donate/:projectSlug" element={<Donate />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/team" element={<Team />} />
         <Route path="/donation/success" element={<SuccessPage />} />
         <Route path="/donation/failure" element={<FailurePage />} />
 

@@ -1,13 +1,15 @@
 import React, { useEffect, useState } from "react";
-import { useParams, Link } from "react-router-dom";
+import { useParams, Link, useNavigate } from "react-router-dom";
 import Layout from "../components/Layout";
 import CONFIG from "../config";
 import { Helmet } from "react-helmet";
+import { extractIdFromSlug, createSlugWithId } from "../utils/slugify";
 
 const API_BASE = CONFIG.apiBaseUrl;
 
 const SinglePost = () => {
-  const { id } = useParams();
+  const { id: slug } = useParams();
+  const navigate = useNavigate();
   const [post, setPost] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -17,7 +19,16 @@ const SinglePost = () => {
     setLoading(true);
     setError(null);
 
-    fetch(`${API_BASE}/api/posts/${id}`)
+    // Extract ID from slug (e.g., "my-blog-post-123" -> 123)
+    const postId = extractIdFromSlug(slug);
+    
+    if (!postId) {
+      setError("Invalid post URL");
+      setLoading(false);
+      return;
+    }
+
+    fetch(`${API_BASE}/api/posts/${postId}`)
       .then((res) => {
         if (!res.ok) {
           throw new Error("Post not found");
@@ -38,7 +49,18 @@ const SinglePost = () => {
       });
 
     return () => (mounted = false);
-  }, [id]);
+  }, [slug]);
+
+  // Validate and redirect to canonical URL if slug doesn't match
+  useEffect(() => {
+    if (post && slug) {
+      const correctSlug = createSlugWithId(post.title, post.id);
+      if (slug !== correctSlug) {
+        console.log(`Redirecting from wrong slug "${slug}" to correct slug "${correctSlug}"`);
+        navigate(`/blogs/${correctSlug}`, { replace: true });
+      }
+    }
+  }, [post, slug, navigate]);
 
   if (loading) {
     return (
