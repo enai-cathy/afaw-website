@@ -28,15 +28,15 @@ const Donate = () => {
         if (Array.isArray(data)) setProjects(data);
 
         // Read the projectId from optional parameter if present
-        const projectIdFromUrl = Number(searchParams.get("projectId"));
-        const hasProject = data.some((proj) => proj.id === projectIdFromUrl);
+        const projectIdFromUrl = searchParams.get("projectId");
+        const hasProject = projectIdFromUrl && data.some((proj) => String(proj.id) === projectIdFromUrl);
 
         if (hasProject) {
           setSelectedProjectId(projectIdFromUrl);
         } else {
           // Only if you want some project default selection logic rather than general donation else remove else block
-          const defaultProjectId = 5;
-          const hasDefault = data.some((proj) => proj.id === defaultProjectId);
+          const defaultProjectId = "5";
+          const hasDefault = data.some((proj) => String(proj.id) === defaultProjectId);
           if (hasDefault) setSelectedProjectId(defaultProjectId);
 
         }

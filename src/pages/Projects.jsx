@@ -88,8 +88,6 @@ function Projects() {
                                         <div key={project.id || index} className="col-lg-6 col-md-6">
                                             <div 
                                                 className="card h-100 shadow-sm border-0 rounded"
-                                                style={{ cursor: "pointer" }}
-                                                onClick={() => navigate(`/our-work/${project.id}`)}
                                             >
                                                 {/* Carousel for Cover + Media */}
                                                 {allImages.length > 0 ? (
@@ -182,13 +180,14 @@ function Projects() {
                                                     <div className="d-flex justify-content-between align-items-center mt-auto">
                                                         <button
                                                             className="btn btn-outline-primary btn-sm"
+                                                            onClick={() => navigate(`/our-work/${project.id}`)}
                                                         >
                                                             View Details
                                                             <i className="fas fa-arrow-right ms-2"></i>
                                                         </button>
 
                                                         <a
-                                                            href={`/donate`}
+                                                            href={`/donate?projectId=${project.id}`}
                                                             className="btn btn-primary btn-sm"
                                                             onClick={(e) => e.stopPropagation()}
                                                         >
