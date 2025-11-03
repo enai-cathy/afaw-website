@@ -4,11 +4,13 @@ import Home from "./pages/Home";
 import Contact from "./pages/Contact";
 import Team from "./pages/Team";
 import Posts from "./pages/Posts";
+import SinglePost from "./pages/SinglePost";
+import Projects from "./pages/Projects";
+import SingleProject from "./pages/SingleProject";
 import SuccessPage from "./pages/SuccessPage";
 import FailurePage from "./pages/FailurePage";
 import WorkInProgress from "./pages/WorkInProgress";
 import NotFound from "./pages/404";
-import Projects from "./pages/Projects";
 import AboutPage from "./pages/AboutPage";
 
 
@@ -19,12 +21,14 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<AboutPage />} />
         <Route path="/our-work" element={<Projects />} />
+        <Route path="/our-work/:id" element={<SingleProject />} />
         <Route path="/blogs" element={<Posts />} />
+        <Route path="/blogs/:id" element={<SinglePost />} />
         <Route path="/donate" element={<Donate />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/team" element={<Team />} />
         <Route path="/posts" element={<Posts />} />
-        {/* <Route path="*" element={<Home />} /> */}
+        <Route path="/posts/:id" element={<SinglePost />} />
         <Route path="/donation/success" element={<SuccessPage />} />
         <Route path="/donation/failure" element={<FailurePage />} />
 

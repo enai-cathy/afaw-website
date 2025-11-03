@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import Layout from "../components/Layout";
 import PostCard from "../components/PostCard";
 import CONFIG from "../config";
@@ -9,6 +10,7 @@ const API_BASE = CONFIG.apiBaseUrl;
 const FILTERS = ["All", "Article", "News", "Blog"];
 
 const Posts = () => {
+  const navigate = useNavigate();
   const [posts, setPosts] = useState([]);
   const [featuredPost, setFeaturedPost] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -121,7 +123,11 @@ const Posts = () => {
               {/* Featured post */}
               {featuredPost && (
                 <div className="col-lg-8 mb-4">
-                  <div className="card shadow-lg">
+                  <div
+                    className="card shadow-lg cursor-pointer"
+                    style={{ cursor: "pointer" }}
+                    onClick={() => navigate(`/blogs/${featuredPost.id}`)}
+                  >
                     <img
                       src={featuredPost.image_url}
                       alt={featuredPost.title}
@@ -133,10 +139,17 @@ const Posts = () => {
                         {featuredPost.type}
                       </small>
                       <h2 className="card-title mt-2">{featuredPost.title}</h2>
-                      <p className="card-text">{featuredPost.content}</p>
+                      <p className="card-text">
+                        {featuredPost.content.length > 200
+                          ? featuredPost.content.slice(0, 200) + "..."
+                          : featuredPost.content}
+                      </p>
                       <small className="text-muted">
                         {new Date(featuredPost.created_at).toLocaleDateString()}
                       </small>
+                      <div className="mt-3">
+                        <span className="text-primary">Read more →</span>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -150,7 +163,8 @@ const Posts = () => {
                     <div
                       key={post.id}
                       className="cursor-pointer"
-                      onClick={() => setFeaturedPost(post)}
+                      style={{ cursor: "pointer" }}
+                      onClick={() => navigate(`/posts/${post.id}`)}
                     >
                       <PostCard
                         title={post.title}

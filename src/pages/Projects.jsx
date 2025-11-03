@@ -1,5 +1,6 @@
 // src/pages/Projects.jsx
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet";
 import Layout from "../components/Layout";
 import { TbFileText } from "react-icons/tb";
@@ -10,6 +11,7 @@ import WhatWeDo from "../components/WhatWeDo";
 const API_BASE = CONFIG.apiBaseUrl;
 
 function Projects() {
+    const navigate = useNavigate();
     const [projects, setProjects] = useState([]);
 
     // Fetch projects
@@ -84,7 +86,11 @@ function Projects() {
 
                                     return (
                                         <div key={project.id || index} className="col-lg-6 col-md-6">
-                                            <div className="card h-100 shadow-sm border-0 rounded">
+                                            <div 
+                                                className="card h-100 shadow-sm border-0 rounded"
+                                                style={{ cursor: "pointer" }}
+                                                onClick={() => navigate(`/our-work/${project.id}`)}
+                                            >
                                                 {/* Carousel for Cover + Media */}
                                                 {allImages.length > 0 ? (
                                                     <div
@@ -172,28 +178,22 @@ function Projects() {
                                                         </li>
                                                     </ul>
 
-                                                    {/* PDF and Donate Buttons side by side and far apart */}
-                                                    <div className="d-flex justify-content-between mt-auto">
-                                                        {project.pdf_document ? (
-                                                            <a
-                                                                href={encodeURI(project.pdf_document)}
-                                                                target="_blank"
-                                                                rel="noopener noreferrer"
-                                                                className="btn btn-sm btn-outline-primary"
-                                                            >
-                                                                <TbFileText className="me-2" />
-                                                                Project Details
-                                                            </a>
-                                                        ) : <span />}
+                                                    {/* View Details and Donate Buttons */}
+                                                    <div className="d-flex justify-content-between align-items-center mt-auto">
+                                                        <button
+                                                            className="btn btn-outline-primary btn-sm"
+                                                        >
+                                                            View Details
+                                                            <i className="fas fa-arrow-right ms-2"></i>
+                                                        </button>
 
                                                         <a
                                                             href={`/donate`}
-                                                            className="btn btn-primary"
+                                                            className="btn btn-primary btn-sm"
+                                                            onClick={(e) => e.stopPropagation()}
                                                         >
                                                             Donate
-                                                            <div className="d-inline-flex btn-sm-square bg-white text-primary rounded-circle ms-1" style={{ width: 22, height: 22, fontSize: 14 }}>
-                                                                <i className="fa fa-arrow-up"></i>
-                                                            </div>
+                                                            <i className="fas fa-heart ms-2"></i>
                                                         </a>
                                                     </div>
                                                 </div>

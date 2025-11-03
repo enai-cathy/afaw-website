@@ -34,7 +34,7 @@ const Donate = () => {
         if (hasProject) {
           setSelectedProjectId(projectIdFromUrl);
         } else {
-          // default project selection when no parameters are passed
+          // Only if you want some project default selection logic rather than general donation else remove else block
           const defaultProjectId = 5;
           const hasDefault = data.some((proj) => proj.id === defaultProjectId);
           if (hasDefault) setSelectedProjectId(defaultProjectId);
@@ -55,7 +55,6 @@ const Donate = () => {
   }, [selectedProjectId, projects]);
 
   const handleProjectChange = (e) => {
-    console.log("Project changed to:", e.target.value);
     setSelectedProjectId(e.target.value);
   };
 
