@@ -112,6 +112,7 @@ function Home() {
                                     .map((project, index) => (
                                         <Cause
                                             key={project.id || index}
+                                            projectId={project.id}
                                             delay={`${index * 0.1}s`}
                                             title={project.name}
                                             desc={project.description}

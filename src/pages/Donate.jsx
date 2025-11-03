@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet";
 import Layout from "../components/Layout";
 import CONFIG from "../config";
+import {useSearchParams } from 'react-router-dom';
 
 const API_BASE = CONFIG.apiBaseUrl;
 
@@ -16,6 +17,7 @@ const Donate = () => {
   const [showCustom, setShowCustom] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [donationType, setDonationType] = useState("");
+  const [searchParams] = useSearchParams();
 
   // Fetch projects
   useEffect(() => {
@@ -25,13 +27,18 @@ const Donate = () => {
         const data = await res.json();
         if (Array.isArray(data)) setProjects(data);
 
-        //Set default selected project if available
-        const defaultProjectId = 5;
-        const hasDefault = data.some((proj) => proj.id === defaultProjectId);
-        if (hasDefault) {
-          setSelectedProjectId(defaultProjectId);
-        // default logic end  
-        
+        // Read the projectId from optional parameter if present
+        const projectIdFromUrl = Number(searchParams.get("projectId"));
+        const hasProject = data.some((proj) => proj.id === projectIdFromUrl);
+
+        if (hasProject) {
+          setSelectedProjectId(projectIdFromUrl);
+        } else {
+          // default project selection when no parameters are passed
+          const defaultProjectId = 5;
+          const hasDefault = data.some((proj) => proj.id === defaultProjectId);
+          if (hasDefault) setSelectedProjectId(defaultProjectId);
+
         }
       } catch (err) {
         console.error("Error fetching projects:", err);
@@ -48,6 +55,7 @@ const Donate = () => {
   }, [selectedProjectId, projects]);
 
   const handleProjectChange = (e) => {
+    console.log("Project changed to:", e.target.value);
     setSelectedProjectId(e.target.value);
   };
 

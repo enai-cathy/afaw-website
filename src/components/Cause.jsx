@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Cause = ({ delay, title, desc, goal, raised, tag, img, alt }) => {
+const Cause = ({projectId, delay, title, desc, goal, raised, tag, img, alt }) => {
   return (
     <div className="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay={delay}>
       <div className="causes-item d-flex flex-column bg-white border-top border-5 border-primary rounded-top overflow-hidden h-100">
@@ -42,7 +42,7 @@ const Cause = ({ delay, title, desc, goal, raised, tag, img, alt }) => {
                 objectPosition: "center"
           }}/>
           <div className="causes-overlay">
-            <a className="btn btn-outline-primary" href="/donate">
+            <a className="btn btn-outline-primary" href={`/donate?projectId=${projectId}`}>
               Read More
               <div className="d-inline-flex btn-sm-square bg-primary text-white rounded-circle ms-2">
                 <i className="fa fa-arrow-right"></i>
