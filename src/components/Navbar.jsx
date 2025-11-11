@@ -44,10 +44,10 @@ const Navbar = () => {
                     />
                 </Link>
                 <div className="me-4">
-                <a className="btn btn-primary btn-outline-primary btn-sm py-1 px-2 d-lg-none me-2" href="/donate" style={{ whiteSpace: 'nowrap', display: 'inline-flex', alignItems: 'center' }}>
+                <a className="btn btn-primary btn-sm py-1 px-3 d-lg-none me-2" href="/donate" style={{ whiteSpace: 'nowrap', display: 'inline-flex', alignItems: 'center' }}>
                     Donate
-                    <div className="d-inline-flex btn-sm-square bg-white text-primary rounded-circle ms-1" style={{ width: 22, height: 22, fontSize: 14 }}>
-                        <i className="fa fa-arrow-right"></i>
+                    <div className="d-inline-flex btn-sm-square bg-white text-primary rounded-circle ms-2" style={{ width: 22, height: 22, fontSize: 14 }}>
+                         <i className="fa fa-tint" style={{ color: "#1a76d1", fontSize: "1rem" }}></i>
                     </div>
                 </a>
                 <button type="button" className="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
@@ -66,10 +66,10 @@ const Navbar = () => {
                         
                     </div>
                     <div className="d-none d-lg-flex ms-2">
-                        <Link className="btn btn-primary btn-outline-primary py-2 px-3" to="/donate">
-                            Donate Now
+                        <Link className="btn btn-primary py-2 px-3" to="/donate">
+                            Donate
                             <div className="d-inline-flex btn-sm-square bg-white text-primary rounded-circle ms-2">
-                                <i className="fa fa-arrow-right"></i>
+                                <i className="fa fa-tint" style={{ color: "#1a76d1", fontSize: "1rem" }}></i>
                             </div>
                         </Link>
                     </div>

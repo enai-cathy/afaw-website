@@ -43,9 +43,13 @@ const Carousel = ({ slides, id = "header-carousel" }) => (
             display: flex;
             align-items: center;
             justify-content: center;
-            background: rgba(6, 32, 33, 0.8);                 //Background opacity for the image
+          background: linear-gradient(to bottom, rgba(2, 51, 67, 0.65), rgba(14, 81, 99, 0.45));/* deep water blue overlay */   //Background opacity for the image
             z-index: 5;
           }
+.carousel-caption .container {
+  margin-top: -10rem; /* move text down from the top */
+}
+
           .carousel-control-prev,
           .carousel-control-next {
             z-index: 15 !important;
@@ -54,13 +58,28 @@ const Carousel = ({ slides, id = "header-carousel" }) => (
             .carousel-caption {
               padding: 0 20px;
             }
+              // added font
             .carousel-caption h1 {
               font-size: 2rem !important;
+              font-family: 'Libre Baskerville', serif;
+              font-weight: 300;
+              letter-spacing: 0.5px; 
+              margin-bottom: 10px;
+             white-space: normal;
+             text-align:center;
             }
             .carousel-caption p {
               font-size: 1rem !important;
+              font-family: 'Inter', sans-serif;
+              white-space: normal;
             }
           }
+          @media (min-width: 992px) {
+                  .carousel-caption h1 {
+                    white-space: nowrap !important;
+                    text-align: center;
+                  }
+                }  
         `}
       </style>
             <div className="carousel-caption">
@@ -82,7 +101,8 @@ const Carousel = ({ slides, id = "header-carousel" }) => (
                       >
                         {slide.buttonText}
                         <div className="d-inline-flex btn-sm-square bg-white text-primary rounded-circle ms-2">
-                          <i className="fa fa-arrow-right"></i>
+                         <i className="fa fa-tint" style={{ color: "#1a76d1", fontSize: "1rem" }}></i>
+
                         </div>
                       </a>
                     )}
