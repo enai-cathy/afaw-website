@@ -7,9 +7,13 @@ import VisionMission from "../components/VisionMission ";
 import CONFIG from "../config";
 import Stat from '../components/Stat';
 import Cause from '../components/Cause';
-import About from '../components/About';
-import Objectives from "../components/Objectives";
-import Sponsors from "../components/Sponsors";
+// import About from '../components/About';
+// import Objectives from "../components/Objectives";
+// import Sponsors from "../components/Sponsors";
+import GetInvolved from "../components/GetInvolved";
+import { Link } from "react-router-dom";
+
+
 
 const API_BASE = CONFIG.apiBaseUrl;
 
@@ -47,12 +51,13 @@ function Home() {
                     <Carousel
                         slides={[
                             {
-                                img: "img/hero1-1.jpg",
+                                img: "img/hero2-2.jpg",
                                 alt: "Rural Community with Water System",
-                                title: "Empowering Africa Through Water",
+                                // Unique selling point of the organisation, a hook to peak the user’s curiosity to know what you do and how you do it in 3s
+                                title: "Clean Water Powered by the Sun ", 
                                 desc:
-                                    "We build solar-powered water infrastructure to improve food security, income, and climate resilience across rural Africa.",
-                                buttonText: "Donate Now",
+                                    "Every donation brings safe, solar-powered water to those who need it most.",
+                                buttonText: "Donate Today",
                                 buttonLink: "/donate",
                             },
                             // ###Only one item on corousal needed for now
@@ -72,9 +77,31 @@ function Home() {
 
                 <VisionMission />
 
-                {/*Stats Section*/}
-                <div className="container-xxl py-5 bg-light">
+                {/*Stats Section*/} 
+
+<section className="section-beige Feautes mt-4 section">
+
+                {/* added a header for the stats */}
+                <div className="row">
+                    <div className="col-lg-12">
+                        <div className="section-title text-center px-4 py-4 mx-auto responsive-width">
+                            {/* added this for flow and storytelling impact */}
+                        <h2> Together, We Deliver Hope. </h2>
+                                <p className="mb-5">
+                                    Since 2019, our solar-powered water systems have brought clean water, jobs, and education to thousands of families in Zambia.  
+                                    Children can go to school, families can earn a living, and communities can thrive.  
+                                    <br/><br/> Yet <span className="text-primary font-semibold">over 1,000,000 people</span> still lack safe water.  
+                                    Together, we can turn every drop into hope and opportunity.
+                                </p>
+                                <Link to="/about">
+                                    <a className="cta-link">Explore Our Story</a>
+                                </Link>
+                        </div>
+                        
+                    </div>
+                {/* <div className="container-xxl py-5 bg-light">
                     <div className="container">
+                        
                         <div className="row g-4 justify-content-center align-items-stretch">
                             <Stat icon="fa fa-solar-panel" number="9" text="Solar-powered water infrastructure in 4 project sites" />
                             <Stat icon="fa fa-users" number="6,000" text="Households food secure with income" />
@@ -82,25 +109,44 @@ function Home() {
                             <Stat icon="fa fa-dollar-sign" number="190,000" text="US$ annually communities' income from produce" />
                         </div>
                     </div>
-                </div>
+                </div> */}
 
-                <Objectives />
+                <section className="stats-section mt-4 section">
+  <div className="container">
+   <p className="text-center mb-4">
+  Clean water Powered by the Sun.
+  <span style={{ color: '#f8bc06' }}> See the difference we’re making together:</span>
+</p>
+
+    <div className="row g-4 justify-content-center align-items-stretch">
+      <Stat icon="fa fa-solar-panel" number="9" text="Solar-powered water projects across 4 sites" />
+      <Stat icon="fa fa-users" number="6,000+" text="Households now food-secure with income" />
+      <Stat icon="fa fa-tint" number="30,000+" text="People & 2,500 animals with clean drinking water" />
+      <Stat icon="fa fa-dollar-sign" number="$190,000+" text="Annual income from local produce" />
+    </div>
+  </div>
+</section>
+
+                </div>
+        
+</section>
+                {/* <Objectives /> */}
 
                 {/* About Section */}
-                <div className="container-xxl py-5">
+                {/* <div className="container-xxl py-5">
                     <div className="container">
                         <div className="row g-5" id="about">
                             <About />
                         </div>
                     </div>
-                </div>
+                </div> */}
                 
                 {/* Projects Section */}
-                <div className="container-xxl bg-light my-5 py-5">
+                <div className="container-xxl bg-light my-5">
                     <div className="container py-5">
-                        <div className="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style={{ maxWidth: '600px' }}>
+                        <div className="home text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style={{ maxWidth: '600px' }}>
                             <div className="d-inline-block rounded-pill bg-secondary text-primary py-1 px-3 mb-3">Be Part of a Project</div>
-                            <h1 className="display-6 mb-4">Together, We Build Resilience Through Clean Water and Opportunity</h1>
+                            <h2 className="display-6 mb-4">Resilience Through Water, Opportunity Through Action</h2>
                         </div>
                         <div className="row g-4 justify-content-center">
                             {projects.length === 0 ? (
@@ -128,8 +174,10 @@ function Home() {
                     </div>
                 </div>
 
+                <GetInvolved/>
+
                 {/* Sponsors Section */}
-                <Sponsors />
+                {/* <Sponsors /> */}
             </Layout>
         </>
     );

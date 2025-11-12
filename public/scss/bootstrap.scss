@@ -5,9 +5,10 @@ $secondary: #FFF0E6;
 $light: #F8F8F9;
 $dark: #001D23;
 
+// changed the font to desired font for page
 $font-family-base: 'Inter', sans-serif;
 
-$headings-font-family: 'Saira', sans-serif;
+$headings-font-family: 'Lato', serif;
 
 $body-color: #787878;
 
@@ -29,4 +30,5 @@ $link-decoration: none;
 
 $enable-negative-margins: true;
 
+// added some custom typographing tuning
 @import "bootstrap/scss/bootstrap";

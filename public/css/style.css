@@ -1,9 +1,11 @@
 /********** Template CSS **********/
 :root {
   --primary: #1a76d1;
-  --secondary: #fff0e6;
+  --secondary: #f7c01d;
   --light: #f8f8f9;
   --dark: #001d23;
+  --font-heading: 'Lato', sans-serif;
+  --font-body: 'Inter', sans-serif;
 }
 
 .back-to-top {
@@ -208,20 +210,67 @@
   opacity: 1;
 }
 
+/* added custom typography */
+body {
+  font-family: var(--font-body);
+  color: #333;
+  line-height: 1.6;
+  background-color: #F5F5F5; 
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  font-weight: 400;
+  letter-spacing: 0.3px; 
+  color: #002B36; 
+}
+ .home h1{
+	font-size:70px;
+	font-weight:600;
+}
+
+.home h2{
+	font-size:50px;
+	font-weight:500;
+}
 /*** Button ***/
 .btn {
   font-weight: 500;
   transition: 0.5s;
 }
 
-.btn.btn-primary,
+/* .btn.btn-primary,
 .btn.btn-outline-primary:hover {
   color: #ffffff;
+} */
+
+.btn-primary {
+  background-color: var(--secondary);
+  border-color: var(--secondary);
+  color: #000000;
+  font-weight: 600;
+  text-transform: uppercase;
+  border-radius: 8px;
+  padding: 0.75rem 1.5rem;
+  transition: all 0.3s ease;
 }
 
-.btn.btn-primary:hover {
-  color: var(--primary);
+.btn-primary:hover {
+  color: var(--secondary);
   background: transparent;
+  border-color: var(--secondary);
+}
+
+.btn-outline-primary {
+  
+  color: var(--primary);
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.btn-outline-primary:hover {
+  background-color: var(--primary);
+  color: #fff;
 }
 
 .btn-square {
@@ -365,6 +414,8 @@
 .page-header .breadcrumb-item + .breadcrumb-item::before {
   color: #999999;
 }
+
+
 
 /*** Causes ***/
 .causes-item .progress {
@@ -676,4 +727,78 @@
     transform: scale(1.05);
   }
 }
+/* subtle transition for modern feel */
+* {
+  transition: all 0.2s ease-in-out;
+}
 
+/* new css styling for stats section */
+/* Stats Section */
+.stats-section {
+  background: var(--dark);
+  color: #ffffff;
+  padding: 5rem 0;
+}
+
+.stats-section .section-title h1 {
+  font-family: 'Libre Baskerville', serif;
+  font-weight: 600;
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+   color: #ffffff;
+}
+
+.stats-section .section-title p {
+  font-family: 'Inter', sans-serif;
+  font-size: 1.1rem;
+  max-width: 600px;
+  margin: 0 auto 3rem auto;
+  color: #d1f0f6; 
+}
+
+/* Stats Cards */
+.stats-section .stat-card {
+  color: #ffffff;
+  text-align: center;
+  padding: 2rem 1rem;
+  transition: transform 0.3s, background 0.3s;
+}
+
+.stats-section .stat-card:hover {
+  transform: translateY(-5px);
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.stats-section .stat-card i {
+  font-size: 3rem;
+  color: #00A1B5;
+  margin-bottom: 1rem;
+}
+
+.stats-section .stat-card .number {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+   color: #ffffff;
+}
+
+.stats-section .stat-card .text {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #d1f0f6;;
+}
+
+/* Responsive */
+@media (max-width: 767.98px) {
+  .stats-section {
+    padding: 3rem 1rem;
+  }
+
+  .stats-section .section-title h2 {
+    font-size: 2rem;
+  }
+
+  .stats-section .stat-card .number {
+    font-size: 2rem;
+  }
+}
