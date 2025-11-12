@@ -1,8 +1,20 @@
 // Auto-generated from API - Do not edit manually
-// Last updated: 2025-10-27 18:30:46 UTC
+// Last updated: 2025-11-12 13:04:54 UTC
 
 export const teamMembers = 
 [
+  {
+    "id": 14,
+    "type": "Volunteer",
+    "full_name": "Dr. Enaikato Cathy Ige-Edaba",
+    "title": null,
+    "socials": "https://www.linkedin.com/in/enaikato-ige-edaba-5b9538216/",
+    "position": "UI/Front-end Developer",
+    "image_url": "https://res.cloudinary.com/dz3tgvaiw/image/upload/v1762863078/teams/1762863078358-WhatsApp%20Image%202025-11-11%20at%2013.03.04_16e6d30f.jpg.jpg",
+    "bio": "Dr. Enai is a physician and technologist passionate about leveraging innovation to improve health and wellbeing in communities. She combines clinical expertise with technology to create solutions that empower people, strengthen systems, and support sustainable access to essential resources like clean water.",
+    "created_at": "2025-11-11T12:11:19.221Z",
+    "updated_at": "2025-11-11T12:11:19.221Z"
+  },
   {
     "id": 13,
     "type": "Volunteer",
