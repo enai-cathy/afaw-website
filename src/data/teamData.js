@@ -1,8 +1,44 @@
 // Auto-generated from API - Do not edit manually
-// Last updated: 2025-11-12 13:04:54 UTC
+// Last updated: 2025-11-21 20:19:21 UTC
 
 export const teamMembers = 
 [
+  {
+    "id": 17,
+    "type": "Board Member",
+    "full_name": "Richard Gleason",
+    "title": null,
+    "socials": "",
+    "position": "Board Secratary",
+    "image_url": "https://res.cloudinary.com/dz3tgvaiw/image/upload/v1763746765/teams/1763746765121-image%20%281%29%20-%20Richard%20Gleason.png.png",
+    "bio": "",
+    "created_at": "2025-11-21T17:39:26.105Z",
+    "updated_at": "2025-11-21T17:39:26.105Z"
+  },
+  {
+    "id": 16,
+    "type": "Team Member",
+    "full_name": "Nic Daphnet Ossiala Elonda",
+    "title": null,
+    "socials": "",
+    "position": "Administrative officer",
+    "image_url": "https://res.cloudinary.com/dz3tgvaiw/image/upload/v1763746722/teams/1763746721802-IMG_7519%20-%20A%20O.%20E..jpeg.jpg",
+    "bio": "",
+    "created_at": "2025-11-21T17:38:43.602Z",
+    "updated_at": "2025-11-21T17:38:43.602Z"
+  },
+  {
+    "id": 15,
+    "type": "Board Member",
+    "full_name": "Jacob Nkowane",
+    "title": null,
+    "socials": "",
+    "position": "Board Trustee",
+    "image_url": "https://res.cloudinary.com/dz3tgvaiw/image/upload/v1763746621/teams/1763746621319-886%20-%20Jacob%20Nkowane.jpeg.jpg",
+    "bio": "",
+    "created_at": "2025-11-21T17:37:02.447Z",
+    "updated_at": "2025-11-21T17:37:02.447Z"
+  },
   {
     "id": 14,
     "type": "Volunteer",
@@ -155,7 +191,7 @@ export const teamMembers =
     "socials": "",
     "position": "Co-founder & Co-Chairman",
     "image_url": "https://res.cloudinary.com/dz3tgvaiw/image/upload/v1758993697/teams/1758993695051-Paul%20Kapanda.png.png",
-    "bio": "Paul is the Co-founder & Co-Chairman of Africa Access Water, he has more than 20 years of experience in water systems and business management",
+    "bio": "Paul is the Co-founder & Co-Chairman of Africa Access Water, he has more than 20 years of experience in water systems and business management.",
     "created_at": "2025-09-27T17:21:38.059Z",
     "updated_at": "2025-09-27T17:21:38.059Z"
   },
