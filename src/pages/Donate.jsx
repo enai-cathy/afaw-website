@@ -18,7 +18,7 @@ const Donate = () => {
   const [customAmount, setCustomAmount] = useState("");
   const [showCustom, setShowCustom] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [donationType, setDonationType] = useState("");
+  const [donationType, setDonationType] = useState("recurring");
 
   // Fetch projects
   useEffect(() => {
@@ -467,7 +467,7 @@ const Donate = () => {
                         >
                           <option value="">Donation Type</option>
                           <option value="one_time">One Time</option>
-                          <option value="recurring" disabled>Recurring</option>
+                          <option value="recurring">Recurring</option>
                         </select>
                       </div>
                       <div className="col-sm-6">
@@ -489,6 +489,7 @@ const Donate = () => {
                           name="interval"
                           className="form-select"
                           required
+                          defaultValue="month"
                         >
                           <option value="">Select Interval</option>
                           <option value="day">Daily</option>
