@@ -36,7 +36,7 @@ const Donate = () => {
           setSelectedProjectId(String(projectIdFromSlug));
         } else if (!projectSlug) {
           // Only set default if no project slug in URL (general donation)
-          const defaultProjectId = "5";
+          const defaultProjectId = "1";
           const hasDefault = data.some((proj) => String(proj.id) === defaultProjectId);
           if (hasDefault) setSelectedProjectId(defaultProjectId);
         }
