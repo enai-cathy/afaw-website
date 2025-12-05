@@ -12,11 +12,13 @@ import FailurePage from "./pages/FailurePage";
 import WorkInProgress from "./pages/WorkInProgress";
 import NotFound from "./pages/404";
 import AboutPage from "./pages/AboutPage";
+import LanguageSuggestion from "./components/LanguageSuggestion";
 
 
 function App() {
   return (
     <BrowserRouter>
+      <LanguageSuggestion />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<AboutPage />} />

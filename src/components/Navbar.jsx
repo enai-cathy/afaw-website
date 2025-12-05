@@ -16,7 +16,7 @@ const Navbar = () => {
             <div className="top-bar text-white-50 row gx-0 align-items-center d-none d-lg-flex">
                 <div className="col-lg-8 px-5 text-start">
                     <div className="d-flex align-items-center flex-wrap gap-3">
-                        <small id="google_translate_element"></small>
+                        <div id="google_translate_element" style={{ display: 'inline-block' }}></div>
                         <small><i className="fa fa-map-marker-alt me-2"></i>Lot 5676/M/6, Lusaka West, Lusaka, Zambia</small>
                         <small><i className="fa fa-envelope me-2"></i><a href="mailto:info@africaaccesswater.org" className="text-white-50">info@africaaccesswater.org</a></small>
                     </div>
@@ -43,6 +43,7 @@ const Navbar = () => {
                         style={{ width: "50px", height: "auto" }}
                     />
                 </Link>
+                
                 <div className="me-4">
                 <a className="btn btn-primary btn-sm py-1 px-3 d-lg-none me-2" href="/donate" style={{ whiteSpace: 'nowrap', display: 'inline-flex', alignItems: 'center' }}>
                     Donate
@@ -62,10 +63,14 @@ const Navbar = () => {
                         <Link to="/blogs" className={`nav-item ${isActive("/blogs")}`}>Blogs</Link>
                         <Link to="/team" className={`nav-item ${isActive("/team")}`}>Our Team</Link>
                         <Link to="/contact" className={`nav-item ${isActive("/contact")}`}>Contact</Link>
-
                         
+                        {/* Mobile Google Translate */}
+                        <div className="d-lg-none mt-3 px-3">
+                            <div id="google_translate_element_mobile" className="navbar-translate"></div>
+                        </div>
                     </div>
-                    <div className="d-none d-lg-flex ms-2">
+                    <div className="d-none d-lg-flex ms-2 align-items-center gap-3">
+                        <div id="google_translate_element_navbar" className="navbar-translate"></div>
                         <Link className="btn btn-primary py-2 px-3" to="/donate">
                             Donate
                             <div className="d-inline-flex btn-sm-square bg-white text-primary rounded-circle ms-2">

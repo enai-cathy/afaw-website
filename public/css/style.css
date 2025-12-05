@@ -685,12 +685,155 @@ h1, h2, h3, h4, h5, h6 {
   color: var(--primary);
 }
 
-#google_translate_element select {
-  padding: 2px 6px;
-  font-size: 12px;
-  border-radius: 4px;
-  border: 1px solid #ccc;
+/* Google Translate Widget - Enhanced Rounded Styling */
+#google_translate_element,
+#google_translate_element_navbar,
+#google_translate_element_mobile,
+#google_translate_element_footer {
   display: inline-block;
+  vertical-align: middle;
+  font-family: var(--font-body);
+}
+
+#google_translate_element select,
+.goog-te-combo {
+  padding: 8px 16px !important;
+  padding-right: 32px !important;
+  font-size: 0.875rem !important;
+  font-family: var(--font-body) !important;
+  font-weight: 500 !important;
+  border-radius: 25px !important; /* Fully rounded pill shape */
+  border: 2px solid rgba(255, 255, 255, 0.3) !important;
+  background-color: rgba(255, 255, 255, 0.1) !important;
+  color: rgba(255, 255, 255, 0.9) !important;
+  display: inline-block !important;
+  cursor: pointer !important;
+  transition: all 0.3s ease !important;
+  min-width: 150px !important;
+  appearance: none !important;
+  -webkit-appearance: none !important;
+  -moz-appearance: none !important;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 12 12'%3E%3Cpath fill='%23ffffff' d='M6 9L1 4h10z'/%3E%3C/svg%3E") !important;
+  background-repeat: no-repeat !important;
+  background-position: right 12px center !important;
+  background-size: 14px !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1) !important;
+}
+
+#google_translate_element select:hover,
+.goog-te-combo:hover {
+  background-color: rgba(255, 255, 255, 0.2) !important;
+  border-color: rgba(255, 255, 255, 0.5) !important;
+  color: rgba(255, 255, 255, 1) !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15) !important;
+}
+
+#google_translate_element select:focus,
+.goog-te-combo:focus {
+  outline: none !important;
+  border-color: var(--primary) !important;
+  background-color: rgba(255, 255, 255, 0.25) !important;
+  box-shadow: 0 0 0 3px rgba(26, 118, 209, 0.3) !important;
+}
+
+/* Navbar specific styling */
+.navbar-translate .goog-te-combo {
+  border-radius: 20px !important;
+  padding: 6px 14px !important;
+  padding-right: 30px !important;
+  min-width: 130px !important;
+  font-size: 0.8rem !important;
+  border: 2px solid rgba(255, 255, 255, 0.2) !important;
+  background-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+.navbar-translate .goog-te-combo:hover {
+  border-color: rgba(255, 255, 255, 0.4) !important;
+  background-color: rgba(255, 255, 255, 0.15) !important;
+}
+
+/* Mobile navbar dropdown styling */
+#google_translate_element_mobile {
+  width: 100%;
+  margin-top: 10px;
+}
+
+#google_translate_element_mobile .goog-te-combo {
+  width: 100% !important;
+  max-width: 100% !important;
+  border-radius: 20px !important;
+  padding: 8px 16px !important;
+  padding-right: 32px !important;
+  font-size: 0.875rem !important;
+  border: 2px solid rgba(255, 255, 255, 0.25) !important;
+  background-color: rgba(255, 255, 255, 0.1) !important;
+  color: rgba(255, 255, 255, 0.9) !important;
+}
+
+/* Footer specific styling */
+.footer-translate .goog-te-combo {
+  border-radius: 20px !important;
+  padding: 8px 16px !important;
+  padding-right: 32px !important;
+  min-width: 160px !important;
+  border: 2px solid rgba(255, 255, 255, 0.2) !important;
+  background-color: rgba(255, 255, 255, 0.05) !important;
+  color: rgba(255, 255, 255, 0.8) !important;
+}
+
+.footer-translate .goog-te-combo:hover {
+  border-color: rgba(255, 255, 255, 0.4) !important;
+  background-color: rgba(255, 255, 255, 0.12) !important;
+  color: rgba(255, 255, 255, 1) !important;
+}
+
+.goog-te-combo option {
+  background-color: var(--dark) !important;
+  color: #fff !important;
+  padding: 8px 12px !important;
+  font-family: var(--font-body) !important;
+}
+
+/* Hide the Google branding banner */
+.goog-te-banner-frame.skiptranslate {
+  display: none !important;
+}
+
+body {
+  top: 0 !important;
+}
+
+/* Google Translate container styling */
+.goog-te-gadget {
+  font-family: var(--font-body) !important;
+  color: rgba(255, 255, 255, 0.85) !important;
+}
+
+.goog-te-gadget-simple {
+  background-color: transparent !important;
+  border: none !important;
+  padding: 0 !important;
+}
+
+.goog-te-gadget-simple .goog-te-gadget-icon {
+  display: none !important;
+}
+
+/* Mobile responsive */
+@media (max-width: 991px) {
+  #google_translate_element {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+  
+  .goog-te-combo {
+    width: 100% !important;
+    max-width: 180px;
+    font-size: 0.8rem !important;
+    padding: 5px 10px !important;
+    padding-right: 26px !important;
+  }
 }
 
 

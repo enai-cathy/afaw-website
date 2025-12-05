@@ -49,6 +49,7 @@ const Team = () => {
                     image_url= {member.image_url || "/img/placeholders/profile.jpg"} 
                     position={member.position}
                     role={member.bio}
+                    socials={member.socials}
                     alt={member.full_name}
                   />
                 );
@@ -72,6 +73,7 @@ const Team = () => {
                   role= ""
                   image_url= {member.image_url || "/img/placeholders/profile.jpg"} 
                   alt={member.full_name}
+                  
                 />
               ))}
             </div>

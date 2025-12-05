@@ -117,5 +117,49 @@
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
     <script src="js/preloader.js"></script>
+    
+    <!-- Google Translate -->
+    <div id="google_translate_element" style="display: none;"></div>
+   
+    <script type="text/javascript">
+      function googleTranslateElementInit() {
+        if (typeof google !== 'undefined' && google.translate) {
+          const languages = 'en,fr,es,pt,de,it,ru,ja,zh,ko,ar,hi,tr,pl,nl,sv,da,no,fi,cs,ro,hu,el,bg,hr,sk,sl,sr,mk,sq,et,lv,lt,mt,ga,cy,is,fa,ur,bn,ta,te,ml,kn,gu,pa,mr,ne,si,my,km,lo,ka,am,sw,ha,yo,ig,sn,st,tn,ve,ts,ss,nr,nso,zu,af,xh,bem,ny,tl,vi,th,id,ms,he,uk';
+          
+          // Initialize for top bar
+          const topBarElement = document.getElementById('google_translate_element');
+          if (topBarElement) {
+            new google.translate.TranslateElement(
+              {
+                pageLanguage: 'en',
+                includedLanguages: languages,
+                layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+                autoDisplay: false,
+                multilanguagePage: true
+              },
+              'google_translate_element'
+            );
+            topBarElement.style.display = 'block';
+          }
+
+     
+        }
+      }
+      
+      // Load Google Translate script
+      if (!document.querySelector('script[src*="translate.google.com"]')) {
+        const script = document.createElement('script');
+        script.type = 'text/javascript';
+        script.src = 'https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
+        script.async = true;
+        document.head.appendChild(script);
+      } else {
+        // Script already exists, just initialize
+        if (typeof google !== 'undefined' && google.translate) {
+          googleTranslateElementInit();
+        }
+      }
+    </script>
+
   </body>
 </html>
