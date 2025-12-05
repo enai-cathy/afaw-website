@@ -1,4 +1,4 @@
-# Africa Access Water - Beta Website
+# Africa Access Water - Main Website
 
 A React-based website for Africa Access Water (AFAW), an organization dedicated to empowering rural communities in Africa through solar-powered water infrastructure solutions.
 
@@ -6,7 +6,7 @@ A React-based website for Africa Access Water (AFAW), an organization dedicated 
 
 Africa Access Water builds solar-powered water infrastructure to improve food security, income, and climate resilience across rural Africa. This website showcases their mission, projects, team, and provides donation capabilities.
 
-## 🚀 Live Demo
+## 🚀 Live
 
 [View Live Website](https://afaw-beta-website.vercel.app/)
 
