@@ -15,11 +15,13 @@ import AboutPage from "./pages/AboutPage";
 import WhatWeDoPage from "./pages/WhatWeDo";
 import HowWeWork from "./pages/HowWeWork";
 import HowWeWorkPage from "./pages/HowWeWork";
+import LanguageSuggestion from "./components/LanguageSuggestion";
 
 
 function App() {
   return (
     <BrowserRouter>
+      <LanguageSuggestion />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<AboutPage />} />

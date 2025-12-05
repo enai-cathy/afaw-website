@@ -1,9 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
 import Layout from "../components/Layout";
 import CONFIG from "../config";
 import { Helmet } from "react-helmet";
 import { extractIdFromSlug, createSlugWithId } from "../utils/slugify";
+import { marked } from "marked";
 
 const API_BASE = CONFIG.apiBaseUrl;
 
@@ -61,6 +62,13 @@ const SinglePost = () => {
       }
     }
   }, [post, slug, navigate]);
+
+  const renderedContent = useMemo(() => {
+    if (!post?.content) {
+      return "";
+    }
+    return marked.parse(post.content);
+  }, [post]);
 
   if (loading) {
     return (
@@ -178,11 +186,10 @@ const SinglePost = () => {
                   )}
 
                   {/* Post Body */}
-                  <div className="post-content">
-                    <p className="lead" style={{ whiteSpace: "pre-wrap" }}>
-                      {post.content}
-                    </p>
-                  </div>
+                  <div
+                    className="post-content"
+                    dangerouslySetInnerHTML={{ __html: renderedContent }}
+                  />
 
                   {/* Author info if available */}
                   {post.author_name && (

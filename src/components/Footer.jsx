@@ -134,11 +134,15 @@ const Footer = () => {
                 className="img-fluid mb-3"
                 style={{ width: "55px", height: "auto" }}
               />
+              
             </Link>
             <p>
               Empowering rural Africa with solar-powered water systems
               restoring dignity, improving health, and unlocking potential for generations.
             </p>
+            
+
+  
 
             <div className="d-flex pt-2">
               <a className="btn btn-square me-2" href="https://www.facebook.com/share/1Go7XNJriP/?mibextid=wwXIfr"><i className="fab fa-facebook-f"></i></a>
@@ -154,8 +158,9 @@ const Footer = () => {
                   height="14"
                   style={{ verticalAlign: "middle" }}
                 />
-              </a>
+              </a>  
             </div>
+            <div id="google_translate_element"></div>
           </div>
 
           {/* Impact Snapshot */}
@@ -222,8 +227,13 @@ const Footer = () => {
 
       {/* Copyright */}
       <div className="container-fluid copyright border-top border-secondary mt-4">
-        <div className="text-center small py-3">
-          &copy; {new Date().getFullYear()} Africa Access Water. All Rights Reserved.
+        <div className="container">
+          <div className="row align-items-center">
+            <div className="col-md-6 text-center text-md-start small py-3">
+              &copy; {new Date().getFullYear()} Africa Access Water. All Rights Reserved.
+            </div>
+           
+          </div>
         </div>
       </div>
     </footer>

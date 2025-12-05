@@ -21,6 +21,28 @@ function Layout({ title, description, children }) {
         preloader.style.display = "none";
       }, 1000);
     }
+
+    // Ensure Google Translate is reinitialized on route change for all elements
+    if (typeof window.google !== 'undefined' && window.google.translate) {
+      const elements = [
+        'google_translate_element',
+        'google_translate_element_navbar',
+        'google_translate_element_mobile',
+        'google_translate_element_footer'
+      ];
+      
+      elements.forEach(elementId => {
+        const translateElement = document.getElementById(elementId);
+        if (translateElement && !translateElement.querySelector('.goog-te-combo')) {
+          // Reinitialize if needed
+          setTimeout(() => {
+            if (typeof window.googleTranslateElementInit === 'function') {
+              window.googleTranslateElementInit();
+            }
+          }, 500);
+        }
+      });
+    }
   }, [location]);
 
   return (
